@@ -11,12 +11,47 @@ class SimulationTests {
 
 	@Test
 	@DisplayName("Module")
-	void simpleTest() {
+	void steerR() {
 		Simu simulation = new Simu();
 		assertEquals("steerLeft", simulation.right(), "Module test");
 	}
 
-	@ParameterizedTest(name = "Status Report")
+	@Test
+	@DisplayName("Module")
+	void ignition() {
+		Simu simulation = new Simu();
+		assertEquals(1, simulation.ignition(), "Module test");
+	}
+
+	@Test
+	@DisplayName("Module")
+	void allowDrive() {
+		Simu simulation = new Simu();
+		assertEquals("DriverInTruck", simulation.allowDrive(), "Module test");
+	}
+
+	@Test
+	@DisplayName("Module")
+	void selftest() {
+		Simu simulation = new Simu();
+		assertEquals(1, simulation.selftest(), "Module test");
+	}
+
+	@Test
+	@DisplayName("Module")
+	void acceleration() {
+		Simu simulation = new Simu();
+		assertEquals("idle", simulation.acceleration(), "Module test");
+	}
+
+	@Test
+	@DisplayName("Module")
+	void steering() {
+		Simu simulation = new Simu();
+		assertEquals("braking", simulation.steering(), "Module test");
+	}
+
+	@ParameterizedTest(name = "Status Report Positive")
 	@CsvSource({
 			"0, IgnitionOn",
 			"1, SelftestOk",

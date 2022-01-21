@@ -5,8 +5,7 @@ import java.util.Random;
 public class Simu {
 	
 Random rand = new Random();
-int n = rand.nextInt(1); // use the one after =
-
+int n3rd = rand.nextInt(10); // use the one after =
 
 	public int ignition(){
 		int ignitionStatus = 1; 
@@ -18,7 +17,7 @@ int n = rand.nextInt(1); // use the one after =
 		int result = 0;
 
 		int fuel = 10; 			// rand
-		fuel = rand.nextInt(15);
+		fuel = rand.nextInt(3);
 		int tirePressure = 1;	// rand
 		int radar = 1;			// rand
 		
@@ -69,9 +68,10 @@ int n = rand.nextInt(1); // use the one after =
 		return a;
 	}
 
-	public String steering() {
+	public String steering() { // rand 1 2 3
 		int number = 0; // rand 0-2
-		String result = "";
+		number = rand.nextInt(2);
+		String result = "braking";
 
 		switch(number){
 			case 0:
@@ -88,9 +88,10 @@ int n = rand.nextInt(1); // use the one after =
 		return result;
 	}
 
-	public String acceleration() {
+	public String acceleration() { // rand 1 2 3
 		int number = 0; // rand 0-2
-		String result = "";
+		number = rand.nextInt(2);
+		String result = "idle";
 		switch(number){
 			case 0:
 			result = "accelerate";
@@ -119,10 +120,10 @@ int n = rand.nextInt(1); // use the one after =
 	}
 
 	public String cruise(int a){
-		String ignitionReport = "";
-		String selftestReport = "";
-		String statusReport = "";
-		String platoonReport = "";
+		String ignitionReport = "NoData";
+		String selftestReport = "NoData";
+		String statusReport = "NoData";
+		String platoonReport = "NoData";
 
 		if (ignition() == 1){
 			ignitionReport = "IgnitionOn";
