@@ -39,23 +39,23 @@ class Builder {
 
 		// jupiter-starter
 		// TODO run("junit5-jupiter-starter-ant", "antw"); https://github.com/junit-team/junit5-samples/issues/66
-		run("junit5-jupiter-starter-gradle", "gradlew", "test");
-		run("junit5-jupiter-starter-gradle-groovy", "gradlew", "test");
-		run("junit5-jupiter-starter-gradle-kotlin", "gradlew", "test");
-		run("junit5-jupiter-starter-maven", "mvnw", "--batch-mode", "clean", "test");
-		run("junit5-jupiter-starter-maven-kotlin", "mvnw", "--batch-mode", "clean", "test");
-		run("junit5-jupiter-starter-bazel", "bazelisk.py", "test", "//...", "--test_output", "all");
+		// run("junit5-jupiter-starter-gradle", "gradlew", "test");
+		// run("junit5-jupiter-starter-gradle-groovy", "gradlew", "test");
+		// run("junit5-jupiter-starter-gradle-kotlin", "gradlew", "test");
+		run("junit5-jupiter-starter-maven", "mvnw", "--batch-mode", "clean", "test"); // my
+		// run("junit5-jupiter-starter-maven-kotlin", "mvnw", "--batch-mode", "clean", "test");
+		// run("junit5-jupiter-starter-bazel", "bazelisk.py", "test", "//...", "--test_output", "all");
 
 		// jupiter-extensions
 		run("junit5-jupiter-extensions", "gradlew", "test");
 
 		// migration
-		run("junit5-migration-gradle", "gradlew", "test");
-		run("junit5-migration-maven", "mvnw", "--batch-mode", "clean", "test");
-		run("junit5-multiple-engines", "gradlew", "test");
+		// run("junit5-migration-gradle", "gradlew", "test");
+		// run("junit5-migration-maven", "mvnw", "--batch-mode", "clean", "test");
+		// run("junit5-multiple-engines", "gradlew", "test");
 
 		// modular
-		run("junit5-modular-world", "jshell", "build.jsh");
+		// run("junit5-modular-world", "jshell", "build.jsh");
 
 		System.out.printf("%n%n%n|%n| Done. Build exits with status = %d.%n|%n", status);
 		return status;

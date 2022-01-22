@@ -7,7 +7,7 @@ Random rand = new Random();
 
 	public int ignition(){ // rand 0 1 
 		int ignitionStatus = 1; 
-		ignitionStatus = rand.nextInt(50);
+		//ignitionStatus = rand.nextInt(1);
 		return ignitionStatus;
 	}
 
