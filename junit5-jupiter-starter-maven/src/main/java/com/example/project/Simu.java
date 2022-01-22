@@ -1,23 +1,21 @@
 package com.example.project;
 import java.util.Random;
 
-// a = rand(num) num%2 == 0 >> on esle off
 public class Simu {
 	
 Random rand = new Random();
-int n3rd = rand.nextInt(10); // use the one after =
 
-	public int ignition(){
+	public int ignition(){ // rand 0 1 
 		int ignitionStatus = 1; 
-		//ignitionStatus = rand.nextInt(1);
+		ignitionStatus = rand.nextInt(50);
 		return ignitionStatus;
 	}
 
-	public int selftest(){
+	public int selftest(){ // rand fuel
 		int result = 0;
 
 		int fuel = 10; 			// rand
-		fuel = rand.nextInt(3);
+		fuel = rand.nextInt(10);
 		int tirePressure = 1;	// rand
 		int radar = 1;			// rand
 		
@@ -31,19 +29,20 @@ int n3rd = rand.nextInt(10); // use the one after =
 
 	public String checkStatus(){
 		int a = 0; // rand
-		String result = "";
+		a = rand.nextInt(2);
+		String result = "F";
 
 		if(a == 0){
-			result = "Follower";
+			result = "F";
 		} else{
-			result = "Leader";
+			result = "Not";
 		}
 		return result;
 	}
 
 	public String enterPlatoon(){
 		int a = 0; // rand
-		String result = "";
+		String result = "Allowed";
 
 		if(a == 0){
 			result = "Allowed";
@@ -68,9 +67,9 @@ int n3rd = rand.nextInt(10); // use the one after =
 		return a;
 	}
 
-	public String steering() { // rand 1 2 3
-		int number = 0; // rand 0-2
-		number = rand.nextInt(2);
+	public String positioning() { // rand 1 2 3
+		int number = 2; // rand 0-2
+		number = rand.nextInt(5);
 		String result = "braking";
 
 		switch(number){
@@ -88,10 +87,42 @@ int n3rd = rand.nextInt(10); // use the one after =
 		return result;
 	}
 
+	public String airbags(int type){ // rand INPUT 1 2 3
+		String result = "NoData";
+		String feedback = "NoData";
+
+		switch(type){
+			case 0:
+			result = "heavyImpact";
+			feedback = deployAirbags(type);
+			break;
+
+			case 1:
+			result = "lightImpact";
+			feedback = deployAirbags(type);
+			break;
+
+			default:
+			result = "rapidBraking";
+		}
+		return result;
+	}
+
+	public String deployAirbags(int a){
+		String result = "NoData";
+		if(a == 1){
+			result = "deployAll";
+		} else{
+			result = "deployOnlyFront";
+		}
+		return result;
+	}
+
 	public String acceleration() { // rand 1 2 3
-		int number = 0; // rand 0-2
-		number = rand.nextInt(2);
-		String result = "idle";
+		int number = 2; // rand 0-2
+		number = rand.nextInt(5);
+		String result = "keep";
+
 		switch(number){
 			case 0:
 			result = "accelerate";
@@ -102,7 +133,7 @@ int n3rd = rand.nextInt(10); // use the one after =
 			break;
 
 			default:
-			result = "idle";
+			result = "keep";
 		}
 		return result;
 	}
@@ -125,20 +156,22 @@ int n3rd = rand.nextInt(10); // use the one after =
 		String statusReport = "NoData";
 		String platoonReport = "NoData";
 
-		if (ignition() == 1){
+		if (ignition() >= 1){
 			ignitionReport = "IgnitionOn";
 
 			if(selftest() == 1){
 				selftestReport = "SelftestOk";
 				
-				if(checkStatus() == "Follower"){
+				if(checkStatus() == "F"){
 					statusReport = "Follower";
 					
 					if(enterPlatoon() == "Allowed"){
 						platoonReport = "FollowingInProgress";
-						steering();
+
+						positioning();
 						acceleration();
 						communication();
+
 					} else{
 						platoonReport = "NoPlatoon";
 					}

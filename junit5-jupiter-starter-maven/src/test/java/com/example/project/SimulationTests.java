@@ -1,5 +1,5 @@
 package com.example.project;
-
+import java.util.Random;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.DisplayName;
@@ -8,50 +8,59 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class SimulationTests {
+	Random rand = new Random();
+	int rnd = rand.nextInt(3);
+
 
 	@Test
-	@DisplayName("Module")
+	@DisplayName("ModuleTest")
+	void crash() {
+		Simu simulation = new Simu();
+		assertEquals("lightImpact", simulation.airbags(rnd), "Module test");
+	}
+	@Test
+	@DisplayName("ModuleTest")
+	void steering() {
+		Simu simulation = new Simu();
+		assertEquals("braking", simulation.positioning(), "Module test");
+	}
+
+	@Test
+	@DisplayName("ModuleTest")
+	void acceleration() {
+		Simu simulation = new Simu();
+		assertEquals("keep", simulation.acceleration(), "Module test");
+	}
+
+	@Test
+	@DisplayName("Method")
 	void steerR() {
 		Simu simulation = new Simu();
 		assertEquals("steerLeft", simulation.right(), "Module test");
 	}
 
 	@Test
-	@DisplayName("Module")
+	@DisplayName("Method")
 	void ignition() {
 		Simu simulation = new Simu();
 		assertEquals(1, simulation.ignition(), "Module test");
 	}
 
 	@Test
-	@DisplayName("Module")
+	@DisplayName("Method")
 	void allowDrive() {
 		Simu simulation = new Simu();
 		assertEquals("DriverInTruck", simulation.allowDrive(), "Module test");
 	}
 
 	@Test
-	@DisplayName("Module")
+	@DisplayName("Method")
 	void selftest() {
 		Simu simulation = new Simu();
 		assertEquals(1, simulation.selftest(), "Module test");
 	}
 
-	@Test
-	@DisplayName("Module")
-	void acceleration() {
-		Simu simulation = new Simu();
-		assertEquals("idle", simulation.acceleration(), "Module test");
-	}
-
-	@Test
-	@DisplayName("Module")
-	void steering() {
-		Simu simulation = new Simu();
-		assertEquals("braking", simulation.steering(), "Module test");
-	}
-
-	@ParameterizedTest(name = "Status Report Positive")
+	@ParameterizedTest(name = "Status Report")
 	@CsvSource({
 			"0, IgnitionOn",
 			"1, SelftestOk",
