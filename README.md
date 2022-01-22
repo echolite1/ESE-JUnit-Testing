@@ -4,12 +4,12 @@ ESE JUnit Test Project for FH Dortmund. Done by Ernest Hunko.
 The main Classes are:
 - Simu.java
 - SimuTests.java
+
 Enjoy testing.
 
 ### Jupiter on Maven ![badge-jdk-8] ![badge-tool-maven] ![badge-junit-jupiter]
 
-The [junit5-jupiter-starter-maven] sample demonstrates the bare minimum configuration for
-getting started with JUnit Jupiter using the Maven build system.
+The [junit5-jupiter-starter-maven] is just an example environment.
 
 
 
